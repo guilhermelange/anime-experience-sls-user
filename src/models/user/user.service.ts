@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { hash } from 'bcryptjs';
-import { PrismaService } from 'src/common/database';
+import { PrismaService } from '../../common/database';
 
 @Injectable()
 export class UserService {
