@@ -162,7 +162,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/anex-user/dev/1696540324660-2023-10-05T21:12:04.660Z/main.zip"
+          "S3Key": "serverless/anex-user/dev/1696602243675-2023-10-06T14:24:03.675Z/main.zip"
         },
         "Handler": "_optimize/anex-user-main/dist/main.handler",
         "Runtime": "nodejs14.x",
@@ -387,7 +387,7 @@
         "MainLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1696540291938": {
+    "ApiGatewayDeployment1696602215577": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": "uupn0m2nb4",
