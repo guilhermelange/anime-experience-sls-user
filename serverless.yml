@@ -1,0 +1,41 @@
+service: anex-user
+
+plugins:
+  - serverless-plugin-optimize
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  apiGateway:
+    restApiId: uupn0m2nb4 # aws apigateway get-rest-apis
+    restApiRootResourceId: 1skt6n60u2 # aws apigateway get-resources --rest-api-id hhu9wj79nj
+
+package:
+  individually: true
+  patterns:
+    - 'schema.prisma'
+    - 'node_modules/.prisma/client/schema.prisma'
+    - '!node_modules/.prisma/client/libquery_engine-*'
+    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+    - '!node_modules/prisma/libquery_engine-*'
+    - '!node_modules/@prisma/engines/**'
+
+custom:
+  optimize:
+    includePaths: ['dist/schema.prisma']
+
+functions:
+  main:
+    name: 'anex-user-main'
+    handler: dist/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /users
+          cors: true
+      - http:
+          method: ANY
+          path: '/users/{proxy+}'
+          cors: true
