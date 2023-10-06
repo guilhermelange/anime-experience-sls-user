@@ -17,7 +17,7 @@ export class UserService {
     });
 
     if (checkUserExists) {
-      throw new HttpException('Email adress already used.', 400);
+      throw new HttpException('Email adress already used!', 400);
     }
 
     const hashedPassword = await hash(password, 8);
