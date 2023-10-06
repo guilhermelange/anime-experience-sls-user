@@ -74,7 +74,7 @@
     "MainLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/anex-user-main"
+        "LogGroupName": "/aws/lambda/prod-anex-user-main"
       }
     },
     "IamRoleLambdaExecution": {
@@ -103,7 +103,7 @@
                 "-",
                 [
                   "anex-user",
-                  "dev",
+                  "prod",
                   "lambda"
                 ]
               ]
@@ -120,7 +120,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/anex-user-main:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/prod-anex-user-main:*"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/anex-user-main:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/prod-anex-user-main:*:*"
                     }
                   ]
                 }
@@ -145,7 +145,7 @@
             "-",
             [
               "anex-user",
-              "dev",
+              "prod",
               {
                 "Ref": "AWS::Region"
               },
@@ -162,11 +162,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/anex-user/dev/1696602243675-2023-10-06T14:24:03.675Z/main.zip"
+          "S3Key": "serverless/anex-user/prod/1696609253505-2023-10-06T16:20:53.505Z/main.zip"
         },
-        "Handler": "_optimize/anex-user-main/dist/main.handler",
+        "Handler": "_optimize/prod-anex-user-main/dist/main.handler",
         "Runtime": "nodejs14.x",
-        "FunctionName": "anex-user-main",
+        "FunctionName": "prod-anex-user-main",
         "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
@@ -185,22 +185,22 @@
         "MainLogGroup"
       ]
     },
-    "MainLambdaVersionMio3VS0O3FDxLegTS5Y2cMyDEJhTLLpsIgUYicnSIs": {
+    "MainLambdaVersiony2QckDKQP0yxVwwsW3GvErXx823GfkvmGInzNyQ4I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MainLambdaFunction"
         },
-        "CodeSha256": "zgWYQVicnT3AxJwsUd59mf+HN/ZUAgwrpnwIV+nWBAc="
+        "CodeSha256": "BB+zGCY+9NWIgLvWFTiB7C2Lw29jw0CXSaNVjswvuLc="
       }
     },
     "ApiGatewayResourceUsers": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
-        "ParentId": "1skt6n60u2",
+        "ParentId": "ch0rgoes3f",
         "PathPart": "users",
-        "RestApiId": "uupn0m2nb4"
+        "RestApiId": "gxovi0wer4"
       }
     },
     "ApiGatewayResourceUsersProxyVar": {
@@ -210,7 +210,7 @@
           "Ref": "ApiGatewayResourceUsers"
         },
         "PathPart": "{proxy+}",
-        "RestApiId": "uupn0m2nb4"
+        "RestApiId": "gxovi0wer4"
       }
     },
     "ApiGatewayMethodUsersOptions": {
@@ -253,7 +253,7 @@
         "ResourceId": {
           "Ref": "ApiGatewayResourceUsers"
         },
-        "RestApiId": "uupn0m2nb4"
+        "RestApiId": "gxovi0wer4"
       }
     },
     "ApiGatewayMethodUsersProxyVarOptions": {
@@ -296,7 +296,7 @@
         "ResourceId": {
           "Ref": "ApiGatewayResourceUsersProxyVar"
         },
-        "RestApiId": "uupn0m2nb4"
+        "RestApiId": "gxovi0wer4"
       }
     },
     "ApiGatewayMethodUsersAny": {
@@ -307,7 +307,7 @@
         "ResourceId": {
           "Ref": "ApiGatewayResourceUsers"
         },
-        "RestApiId": "uupn0m2nb4",
+        "RestApiId": "gxovi0wer4",
         "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "Integration": {
@@ -351,7 +351,7 @@
         "ResourceId": {
           "Ref": "ApiGatewayResourceUsersProxyVar"
         },
-        "RestApiId": "uupn0m2nb4",
+        "RestApiId": "gxovi0wer4",
         "ApiKeyRequired": false,
         "AuthorizationType": "NONE",
         "Integration": {
@@ -387,11 +387,11 @@
         "MainLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1696602215577": {
+    "ApiGatewayDeployment1696609234151": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
-        "RestApiId": "uupn0m2nb4",
-        "StageName": "dev"
+        "RestApiId": "gxovi0wer4",
+        "StageName": "prod"
       },
       "DependsOn": [
         "ApiGatewayMethodUsersOptions",
@@ -428,7 +428,7 @@
                 "Ref": "AWS::AccountId"
               },
               ":",
-              "uupn0m2nb4",
+              "gxovi0wer4",
               "/*/*"
             ]
           ]
@@ -442,16 +442,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-anex-user-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-anex-user-prod-ServerlessDeploymentBucketName"
       }
     },
     "MainLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MainLambdaVersionMio3VS0O3FDxLegTS5Y2cMyDEJhTLLpsIgUYicnSIs"
+        "Ref": "MainLambdaVersiony2QckDKQP0yxVwwsW3GvErXx823GfkvmGInzNyQ4I"
       },
       "Export": {
-        "Name": "sls-anex-user-dev-MainLambdaFunctionQualifiedArn"
+        "Name": "sls-anex-user-prod-MainLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -461,7 +461,7 @@
           "",
           [
             "https://",
-            "uupn0m2nb4",
+            "gxovi0wer4",
             ".execute-api.",
             {
               "Ref": "AWS::Region"
@@ -470,12 +470,12 @@
             {
               "Ref": "AWS::URLSuffix"
             },
-            "/dev"
+            "/prod"
           ]
         ]
       },
       "Export": {
-        "Name": "sls-anex-user-dev-ServiceEndpoint"
+        "Name": "sls-anex-user-prod-ServiceEndpoint"
       }
     }
   }

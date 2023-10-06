@@ -22,10 +22,6 @@ package:
     - '!node_modules/prisma/libquery_engine-*'
     - '!node_modules/@prisma/engines/**'
 
-custom:
-  optimize:
-    includePaths: ['dist/schema.prisma']
-
 functions:
   main:
     name: 'anex-user-main'
