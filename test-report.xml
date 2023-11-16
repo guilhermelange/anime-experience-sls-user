@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-user\src\models\user\user.service.spec.ts">
-    <testCase name="UserService should be defined" duration="26"/>
+    <testCase name="UserService should be defined" duration="30"/>
+    <testCase name="UserService create should create a user" duration="34"/>
+    <testCase name="UserService create should return a error" duration="6"/>
   </file>
   <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-user\src\models\user\user.controller.spec.ts">
-    <testCase name="UserController should be defined" duration="24"/>
+    <testCase name="UserController should be defined" duration="29"/>
+    <testCase name="UserController create should create a user" duration="7"/>
+  </file>
+  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-user\src\models\authentication\auth.controller.spec.ts">
+    <testCase name="UserController should be defined" duration="27"/>
+    <testCase name="UserController create should create a auth" duration="9"/>
+  </file>
+  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-user\src\models\authentication\auth.service.spec.ts">
+    <testCase name="UserService should be defined" duration="27"/>
+    <testCase name="UserService authenticateUser should auth a user" duration="6"/>
+    <testCase name="UserService authenticateUser should fail by user not found" duration="9"/>
+    <testCase name="UserService authenticateUser should fail by user invalid pass" duration="5"/>
   </file>
 </testExecutions>
